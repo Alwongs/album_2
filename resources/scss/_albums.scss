@@ -1,0 +1,118 @@
+.albums-container {
+    max-width: 1000px;
+    height: 100vh;
+    margin: 0 auto;
+    // background-color: #5c6d71;
+    background-color: transparent;
+}
+.albums-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 40px;
+
+}
+.albums-title {
+    font-size: 22px;
+    color: #ccc;
+// background-color: red;
+}
+
+.albums-create-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc;
+    border: 2px solid grey;
+    height: 24px;
+    width: 50px;
+    font-size: 14px;
+// background-color: red;
+}
+
+.albums-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 34px;
+    margin-bottom: 20px;  
+}
+.albums-item {
+    background-color: rgb(255, 243, 173);
+    position: relative;
+    width: 140px;
+    height: 100px;
+    box-shadow: 1px 1px 5px 1px rgb(0, 0, 0, 0.3);
+    border: 1px solid  rgb(202, 191, 127);
+    border-radius: 7px;    
+}
+.albums-item__link {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: rgb(255, 243, 173);
+    border: 3px solid rgb(255, 243, 173);
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(28, 98, 126);
+    cursor: pointer;
+    transition: 0.7s;
+    &:hover {
+        background-color:  rgb(252, 255, 207);
+        border: 3px solid green;
+    }
+}
+.album-title {
+    font-size: 20px;
+}
+.album-actions {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    // transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.delete-btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    color: #9ca3af;
+}
+
+.delete-btn-icon:hover {
+    color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.1);
+}
+.albums-item:hover .album-actions {
+    opacity: 1;
+}
+
+.edit-btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    color: #9ca3af;
+}
+
+.edit-btn-icon:hover {
+    color: #0066ff;
+    background-color: rgba(0, 46, 252, 0.1);
+}

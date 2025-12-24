@@ -1,0 +1,114 @@
+.photos-container {
+    // border: 1px solid red;
+    // background-color: #5c6d71;
+    background-color: transparent;
+    width: 1000px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 10px;
+}
+.photo-detail-container {
+    // border: 1px solid red;
+    background-color: #5c6d71;
+    width: 1000px;
+    // height: 100vh;
+    margin: 0 auto;
+    padding: 10px 0 44px;    
+    text-align: center;
+}
+.photo-detail {
+    &__title {
+        margin-bottom: 20px;
+    }
+}
+
+
+.photos-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.photos-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 34px;
+    flex-wrap: wrap;
+}
+.photos-item {
+    position: relative;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+    // border-bottom: 1px solid rgb(194, 194, 194);
+
+    &__link {
+        // background-color: green;
+        display: block;
+        position: absolute;
+        left: 0; top: 0; right: 0; bottom: 0;
+
+    }
+    &__detail-link {
+        display: block;
+        width: 18px;
+        height: 18px; 
+        svg {
+            width: 100%;
+            height: 100%;            
+        }
+    }
+}
+.photo-actions {
+    // border: 1px solid red;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    z-index: 100;
+    left: 0; top: 0; right: 0;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    opacity: 0;
+    padding: 0 7px;
+    transition: opacity 0.4s;
+    &__title {
+        font-size: 16px;
+        overflow: hidden;
+    }    
+}
+.photos-item:hover .photo-actions {
+    opacity: 1;
+}
+.photo-title {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+.preview-image-wrapper {
+    background-color: #ddd;
+    border: 2px solid #ccc;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.preview-image-wrapper img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.photos-item__delete-btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    color: #9ca3af;
+}
+
+.photos-item__delete-btn-icon:hover {
+    color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.1);
+}

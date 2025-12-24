@@ -1,0 +1,23 @@
+.top-panel {
+    background-color: transparent;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;    
+}
+.top-panel-navigation, .top-panel-auth-block {
+    display: flex;
+    gap: 20px; 
+}
+
+.top-panel-link {
+    display: block;
+    font-size: 18px;
+    color: #ccc;
+    transition: 0.3s;
+    &:hover {
+        color: yellow;
+    }
+}
+
