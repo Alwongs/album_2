@@ -2,33 +2,14 @@
     max-width: 1000px;
     height: 100vh;
     margin: 0 auto;
+    padding: 0 10px;    
     // background-color: #5c6d71;
     background-color: transparent;
 }
-.albums-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    padding: 0 40px;
 
-}
 .albums-title {
     font-size: 22px;
     color: #ccc;
-// background-color: red;
-}
-
-.albums-create-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ccc;
-    border: 2px solid grey;
-    height: 24px;
-    width: 50px;
-    font-size: 14px;
-// background-color: red;
 }
 
 .albums-list {

@@ -22,6 +22,7 @@ class PhotoController extends Controller
 
     public function create(Request $request)
     {
+        // dd($request);
         $album = Album::find($request->input('album_id'));
         return view('photos.create', ['album' => $album]);
     }
@@ -67,8 +68,10 @@ class PhotoController extends Controller
         if (Auth::id() !== $photo->user_id) {
             abort(403, 'Доступ запрещён');
         }
+
+        $album = Album::find($photo->album_id);
         
-        return view('photos.show', compact('photo')); 
+        return view('photos.show', compact('album', 'photo')); 
     }
 
     public function showPreview(Photo $photo)

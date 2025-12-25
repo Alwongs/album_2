@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="albums-container">
-        @include('albums.index-header')
+        @include('layouts.page-header')
 
         <ul class="albums-list">
             @foreach($albums as $album)

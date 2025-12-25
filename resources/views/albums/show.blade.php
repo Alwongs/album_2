@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="photos-container">
-        @include('albums.show-header')
+        @include('layouts.page-header')
 
         <ul class="photos-list">
             @foreach($album->photos as $photo)
