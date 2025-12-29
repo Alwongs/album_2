@@ -102,12 +102,20 @@ class PhotoController extends Controller
 
     public function edit(Photo $photo)
     {
-        //
+        return view('photos.edit', compact('photo'));
     }
 
     public function update(Request $request, Photo $photo)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+        ]);       
+
+        $photo->title = $request->input('title');
+
+        $photo->save();
+
+        return redirect()->route('photos.show', $photo->id);
     }
 
     public function destroy(Photo $photo)

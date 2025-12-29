@@ -97,3 +97,35 @@
     color: #0066ff;
     background-color: rgba(0, 46, 252, 0.1);
 }
+
+.main-row-container {
+    display: flex;
+}
+.album-list-column {
+    // width: 150px;
+    // border: 1px solid yellow;
+    &__item {
+        background-color: rgb(255, 243, 173);
+        width: 140px;
+        height: 30px;
+        margin-bottom: 10px;
+
+    }
+    &__link {
+        display: block;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 500;
+        color: rgb(0, 60, 138);
+        background-color: rgba(46, 85, 107, 0.1);
+        transition: 0.2s;
+        &:hover {
+            background-color: rgb(31, 111, 216);
+            color: #eee;
+        }
+    }
+}

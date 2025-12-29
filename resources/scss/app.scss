@@ -1,8 +1,24 @@
 @use "reset";
+
+@use "variables";
+
 @use "common";
+
 @use "top-panel";
 @use "page-header";
 @use "form";
 @use "photos";
 @use "albums";
 
+
+
+
+// @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+      
+// }     
+// @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+       
+// }           
+// @media (max-width: $mobile-max) {  
+             
+// } 

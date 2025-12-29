@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Storage;
 
 class AlbumController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $albums = Album::where('user_id', Auth::id())->orderBy('title', 'ASC')->get();
@@ -20,17 +17,11 @@ class AlbumController extends Controller
         return view('albums.index',['albums' => $albums]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('albums.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $album = $request->all();
@@ -45,31 +36,22 @@ class AlbumController extends Controller
         return redirect()->route('albums.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Album $album)
     {
         if ($album->user_id != Auth::id()) {
             return view('errors.404');
         }
 
-        $albums = Album::where('user_id', $album->user_id)->orderBy('title', 'ASC')->get();       
+        $albums = Album::where('user_id', $album->user_id)->orderBy('title', 'DESC')->get();       
 
         return view('albums.show', compact('album', 'albums'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Album $album)
     {
         return view('albums.edit', compact('album'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Album $album)
     {
         // TODO: to improve request validation. permit not unique title when updating, 
@@ -79,9 +61,6 @@ class AlbumController extends Controller
         return redirect()->route('albums.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Album $album)
     {
         foreach($album->photos as $photo) {
@@ -95,10 +74,7 @@ class AlbumController extends Controller
             if (File::exists(Storage::path($previewPath))) {
                 Storage::delete($previewPath);
             }
-
         }
-
-
 
         $album->delete();
         return redirect()->back();

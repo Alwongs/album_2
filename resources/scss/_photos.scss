@@ -1,8 +1,10 @@
+@use "variables" as var;
+
 .photos-container {
     // border: 1px solid red;
     // background-color: #5c6d71;
     background-color: transparent;
-    width: 1000px;
+    max-width: 1000px;
     height: 100vh;
     margin: 0 auto;
     padding: 0 10px;
@@ -19,6 +21,7 @@
 .photo-detail {
     &__title {
         margin-bottom: 20px;
+        color: #ccc;
     }
 }
 
@@ -35,18 +38,21 @@
     flex-wrap: wrap;
 }
 .photos-item {
+    // border: 3px solid red;
     position: relative;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
-    // border-bottom: 1px solid rgb(194, 194, 194);
-
     &__link {
-        // background-color: green;
         display: block;
         position: absolute;
         left: 0; top: 0; right: 0; bottom: 0;
-
+        background-color: rgba(0, 0, 0, 0.2);
+        transition: .4s;
+        &:hover {
+            background-color: transparent;
+        }
     }
     &__detail-link {
+        cursor: pointer;        
         display: block;
         width: 18px;
         height: 18px; 
@@ -55,13 +61,18 @@
             height: 100%;            
         }
     }
+
+    @media (max-width: var.$mobile-max) {  
+        width: 80%;    
+    }     
 }
 .photo-actions {
     // border: 1px solid red;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
     position: absolute;
     z-index: 100;
-    left: 0; top: 0; right: 0;
+    left: 4px; top: 4px; right: 4px;
     height: 24px;
     display: flex;
     justify-content: space-between;
@@ -82,13 +93,18 @@
     margin-bottom: 4px;
 }
 .preview-image-wrapper {
-    background-color: #ddd;
+    background-color: #ffffff9d;
     border: 2px solid #ccc;
     height: 200px;
     width: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
+        
+    @media (max-width: var.$mobile-max) { 
+        background-color: #ffffff2c;         
+        width: 100%;    
+    }     
 }
 .preview-image-wrapper img {
     max-height: 100%;
