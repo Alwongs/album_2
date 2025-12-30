@@ -69,6 +69,21 @@ class PhotoController extends Controller
             abort(403, 'Доступ запрещён');
         }
 
+        dd(Auth::user()->is_root);
+
+        // $allowedAccesses = $this->photoService->getAllowedAccesses($this->auth->role);
+        // $nextPhoto = Photo::where('category_id', $photo->category_id)
+        //     ->whereIn('access', $allowedAccesses)
+        //     ->where('id', '>', $photo->id)
+        //     ->orderBy('id')
+        //     ->first();
+        // $previousPhoto = Photo::where('category_id', $photo->category_id)
+        //     ->whereIn('access', $allowedAccesses)
+        //     ->where('id', '<', $photo->id)
+        //     ->orderBy('id', 'desc')
+        //     ->first();
+
+
         $album = Album::find($photo->album_id);
         
         return view('photos.show', compact('album', 'photo')); 
