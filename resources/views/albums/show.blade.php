@@ -7,7 +7,13 @@
                 @foreach($albums as $item)
 
                     <li class="album-list-column__item">
-                        <a class="album-list-column__link" href="{{ route('albums.destroy', $item) }}">
+                        <a
+                            class="album-list-column__link"
+                            href="{{ route('albums.destroy', $item) }}"
+                            @if($item->id == $album->id)
+                                style="background-color: rgb(31, 111, 216); color: #eee;"
+                            @endif                            
+                        >
                             <p>{{ $item->title }}</p>
                         </a>
                     </li>
