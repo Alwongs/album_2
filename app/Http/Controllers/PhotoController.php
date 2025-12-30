@@ -69,24 +69,36 @@ class PhotoController extends Controller
             abort(403, 'Доступ запрещён');
         }
 
-        // dd(Auth::user()->is_root);
+        $role = Auth::user()->role;
 
-        // $allowedAccesses = $this->photoService->getAllowedAccesses($this->auth->role);
-        // $nextPhoto = Photo::where('category_id', $photo->category_id)
-        //     ->whereIn('access', $allowedAccesses)
-        //     ->where('id', '>', $photo->id)
-        //     ->orderBy('id')
-        //     ->first();
-        // $previousPhoto = Photo::where('category_id', $photo->category_id)
-        //     ->whereIn('access', $allowedAccesses)
-        //     ->where('id', '<', $photo->id)
-        //     ->orderBy('id', 'desc')
-        //     ->first();
+        $allowedAccesses = ['G'];
+
+        switch ($role) {
+            case 'A':
+                $allowedAccesses = ['A', 'F', 'G'];
+                break;
+            case 'F':
+                $allowedAccesses = ['F', 'G'];
+                break;
+        }
+
+        $nextPhoto = Photo::where('album_id', $photo->album_id)
+            ->whereIn('access', $allowedAccesses)
+            ->where('id', '>', $photo->id)
+            ->orderBy('id')
+            ->first();
+        $previousPhoto = Photo::where('album_id', $photo->album_id)
+            ->whereIn('access', $allowedAccesses)
+            ->where('id', '<', $photo->id)
+            ->orderBy('id', 'desc')
+            ->first();
 
 
+        // possible to remove/ See next comment
         $album = Album::find($photo->album_id);
         
-        return view('photos.show', compact('album', 'photo')); 
+        // posible to remove album, becouse we can use $photo->album()
+        return view('photos.show', compact('album', 'photo', 'nextPhoto', 'previousPhoto')); 
     }
 
     public function showPreview(Photo $photo)

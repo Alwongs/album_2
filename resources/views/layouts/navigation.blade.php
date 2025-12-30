@@ -4,6 +4,9 @@
         @auth        
             <a class="top-panel-link" href="{{ url('/dashboard') }}">Dashboard</a>
             <a class="top-panel-link" href="{{ url('/albums') }}">Albums</a>
+            @if(Auth::user()->is_root)
+                <a class="top-panel-link" href="{{ url('/users') }}">Users</a>
+            @endif
         @endauth        
     </nav>
 

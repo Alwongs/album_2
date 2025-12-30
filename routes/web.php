@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PhotoController;
 
@@ -19,8 +20,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resources([ 
-        'albums'     => AlbumController::class,
-        'photos'     => PhotoController::class,
+        'users'  => UserController::class,
+        'albums' => AlbumController::class,
+        'photos' => PhotoController::class,
     ]);
 
     Route::get('/photos/{photo}/preview', [PhotoController::class, 'showPreview'])
