@@ -69,7 +69,7 @@ class PhotoController extends Controller
             abort(403, 'Доступ запрещён');
         }
 
-        dd(Auth::user()->is_root);
+        // dd(Auth::user()->is_root);
 
         // $allowedAccesses = $this->photoService->getAllowedAccesses($this->auth->role);
         // $nextPhoto = Photo::where('category_id', $photo->category_id)
