@@ -42,7 +42,7 @@ class AlbumController extends Controller
             return view('errors.404');
         }
 
-        $albums = Album::where('user_id', $album->user_id)->orderBy('title', 'DESC')->get();       
+        $albums = Album::where('user_id', $album->user_id)->orderBy('title', 'DESC')->get();  
 
         return view('albums.show', compact('album', 'albums'));
     }

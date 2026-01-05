@@ -4,8 +4,11 @@
         
         <h1 class="photo-detail__title">{{ $photo->title }}</h1>
         <p class="photo-detail__description">{{ $photo->description }}</p>
-        <img src="{{ route('photos.original', $photo) }}" alt="Original" style="max-height: 600px">
-        
-        @include('photos.detail-pagination')
+
+        <div class="detail-image-block mb-1">
+            <img src="{{ route('photos.original', $photo) }}" alt="Original" style="max-height: 600px">
+
+            @include('photos.detail-pagination')
+        </div>
     </div>
 </x-app-layout>

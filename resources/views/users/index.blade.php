@@ -4,7 +4,7 @@
 
         <ul class="user-list">
             @foreach($users as $user)
-                <li style="color: #ccc;">{{ $user->name }}, role: {{ $user->role }}</li>
+                @include('users.index-users-item')
             @endforeach
         </ul>
     </div>

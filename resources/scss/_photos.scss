@@ -12,7 +12,7 @@
 .photo-detail-container {
     // border: 1px solid red;
     // background-color: #5c6d71;
-    width: 1000px;
+    max-width: 1000px;
     // height: 100vh;
     margin: 0 auto;
     padding: 10px 0 44px;    
@@ -128,4 +128,9 @@
 .photos-item__delete-btn-icon:hover {
     color: #ef4444;
     background-color: rgba(239, 68, 68, 0.1);
+}
+
+.empty-photos-list {
+    text-align: center;
+    color: #ccc;
 }

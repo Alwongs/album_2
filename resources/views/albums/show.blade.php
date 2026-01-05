@@ -20,13 +20,16 @@
                     
                 @endforeach 
             </ul>
-            <ul class="photos-list">
-                @foreach($album->photos as $photo)
 
-                    @include('albums.show-photos-item')
-                    
-                @endforeach 
-            </ul>
+            <ul class="photos-list">
+                @if(count($album->photos))
+                    @foreach($album->photos as $photo)
+                        @include('albums.show-photos-item')
+                    @endforeach 
+                @else
+                    <li class="empty-photos-list">Empty photo list</li>            
+                @endif                    
+            </ul> 
         </div>
     </div>  
 </x-app-layout>
